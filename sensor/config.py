@@ -2,7 +2,7 @@ from dataclasses import dataclass
 import pymongo
 import os
 
-MONGO_DB_URL_KEY = 'MONGO_DB_URL'
+MONGO_DB_URL_KEY = "MONGO_DB_URL"
 
 @dataclass
 class EvironmentVariable:

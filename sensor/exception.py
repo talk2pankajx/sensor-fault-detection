@@ -10,7 +10,7 @@ class CustomException(Exception):
         _,_,exc_tb = error_detail.exc_info()
         file_name = exc_tb.tb_frame.f_code.co_filename
         line_no = exc_tb.tb_lineno
-        error_message = f"Error occurred file name[{file_name}] and line number [{line_no}]"
+        error_message = f"Error occurred file name[{file_name}] and line number [{line_no}] error message:[{error_message}]"
         return error_message
     def __repr__(self):
         return self.error_message

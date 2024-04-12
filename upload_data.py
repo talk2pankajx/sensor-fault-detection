@@ -10,9 +10,9 @@ def storing_records_in_mongo():
         dump_csv_file_to_mongodb_collection(file_path,database_name,collection_name)
 
     except Exception as e:
-        raise e
+        CustomException(e, sys)
 
-    if __name__ =='__main__':
-        storing_records_in_mongo()
+if __name__ =='__main__':
+    storing_records_in_mongo()
 
 

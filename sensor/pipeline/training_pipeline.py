@@ -2,6 +2,7 @@ from sensor.entity.config_entity import TrainingPipelineConfig, DataIngestionCon
 from sensor.entity.artifacts_entity import DataIngestionArtifact
 from sensor.logger import logging
 from sensor.components.data_ingestion import DataIngestion
+from sensor.exception import CustomException
 import os, sys
 
 class TrainingPipeline:
@@ -10,7 +11,7 @@ class TrainingPipeline:
             self.training_pipeline_config = training_pipeline_config
         except Exception as  e:
             raise CustomException(e,sys)
-    def start_data_ingestion()->DataIngestionArtifact:
+    def start_data_ingestion(self)->DataIngestionArtifact:
         try:
             data_ingestion_config = DataIngestionConfig(training_pipeline_config=self.training_pipeline_config)
             data_ingestion = DataIngestion(data_ingestion_config)
@@ -21,6 +22,7 @@ class TrainingPipeline:
     def start(self):
         try:
             data_ingestion_artifact = self.start_data_ingestion()
+
         except Exception as e:
             raise CustomException(e,sys)
             
