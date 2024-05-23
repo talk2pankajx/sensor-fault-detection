@@ -20,7 +20,7 @@ def export_collection_as_dataframe(database_name:str,collection_name:str)->pd.Da
     try:
         df = pd.DataFrame(list(mongo_client[database_name][collection_name].find()))
         if "_id" in df.columns.to_list():
-            df=df.drop("_id",axis1=0)
+            df=df.drop("_id",axis=1)
         return df
     except Exception as e:
         raise CustomException(e, sys)

@@ -1,8 +1,8 @@
-from sensor.entity.config_entity import TrainingPipelineConfig, DataIngestionConfig
-from sensor.entity.artifacts_entity import DataIngestionArtifact
+from sensor.entity.config_entity import TrainingPipelineConfig, DataIngestionConfig,DataValidationConfig
+from sensor.entity.artifacts_entity import DataIngestionArtifact,DataValidationArtifact
 from sensor.logger import logging
 from sensor.components.data_ingestion import DataIngestion
-from sensor.components import DataValidation
+from sensor.components.data_validation import DataValidation
 from sensor.exception import CustomException
 import os, sys
 
