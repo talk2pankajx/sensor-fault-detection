@@ -4,4 +4,7 @@ pymongo
 scikit-learn
 python-dotenv
 PyYAML
+dill
+imblearn
+xgboost
 -e .

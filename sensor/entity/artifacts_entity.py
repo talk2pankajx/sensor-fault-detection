@@ -9,4 +9,17 @@ class DataValidationArtifact:
     test_file_path:str
     report_file_path:str
     status :bool
-    #decidimg status based on the status varible boolean
+    #deciding status based on the status varible boolean
+
+@dataclass
+class DataTransformationArtifact:
+    transform_object_path :str
+    transform_train_path:str
+    transform_test_path: str
+    target_encoder_path :str
+
+@dataclass
+class ModelTrainerArtifact:
+    model_path:str
+    f1_train_score: float
+    f1_test_score: float
