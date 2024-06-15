@@ -59,3 +59,36 @@ class ModelTrainerConfig:
             
         except Exception as e:
             raise CustomException(e, sys)
+
+class ModelEvaluationConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        try:
+            self.change_threshold = 0.01
+            self.schema_file_path = os.path.join("schema.yaml")
+            
+        except Exception as e:
+            raise CustomException(e, sys)
+class ModelPusherConfig:
+     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        try:
+            self.model_pusher_dir = os.path.join(training_pipeline_config.artifacts_dir, 'model_pusher')
+            self.save_model_dir = os.path.join("saved_models")
+            self.pusher_model_dir = os.path.join(self.model_pusher_dir, 'saved_models')
+            self.pusher_model_path = os.path.join(self.pusher_model_dir,MODEL_FILE_NAME)
+            self.pusher_tranformer_path = os.path.join(self.pusher_model_dir,TRANSFORMER_OBJECT_FILE_NAME)
+            self.pusher_target_encoder_path = os.path.join(self.pusher_model_dir,TARGET_ENCODER_OBJECT_FILE_NAME)
+            
+        except Exception as e:
+            raise CustomException(e, sys)
+
+class BatchPredictionConfig:
+
+    def __init__(self):
+        try:
+            self.inbox_dir = os.path.join("data","inbox")
+            self.outbox_dir = os.path.join("data","outbox")
+            self.archive_dir = os.path.join("data","archive")
+            os.makedirs(self.outbox_dir ,exist_ok=True)
+            os.makedirs(self.archive_dir,exist_ok=True)
+        except Exception as e:
+            raise CustomExceptio(e, sys)
