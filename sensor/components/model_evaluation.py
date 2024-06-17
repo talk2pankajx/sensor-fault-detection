@@ -38,7 +38,7 @@ class ModelEvaluation:
             logging.info(f"Finding location of transformer, model and target encoder")
             transformer_path = self.model_resolver.get_latest_transformer_path()
             model_path = self.model_resolver.get_latest_model_path()
-            target_encoder_path = self.model_resolver.get_latest_target_encoder_save_path()
+            target_encoder_path = self.model_resolver.get_latest_target_encoder_path()
             
             
             logging.info(f"Previosly trained transformer, model and target encoder")
@@ -59,7 +59,7 @@ class ModelEvaluation:
             target_df = test_df[target_column]
             y_true = target_encoder.transform(target_df)
             
-            input_feature_name = list(transformer.feature_names_in)
+            input_feature_name = list(transformer.feature_names_in_)
             input_arr = transformer.transform(test_df[input_feature_name])
             y_pred = model.predict(input_arr)
             print(f"Predictions using the previous model:{target_encoder.inverse_transform(y_pred[:5])}")
@@ -67,7 +67,7 @@ class ModelEvaluation:
             logging.info(f"Accuracy using the previous trained model score: {previous_model_score}")
             
             
-            input_feature_name = list(transformer.feature_names_in)
+            input_feature_name = list(current_transformer.feature_names_in_)
             input_arr = current_transformer.transform(test_df[input_feature_name])
             y_pred = current_model.predict(input_arr)
             y_true =current_target_encoder.transform(target_df)
