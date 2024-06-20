@@ -4,7 +4,7 @@ from sensor.logger import logging
 from sensor.exception import CustomException
 from typing import Optional
 import os, sys
-import numpy as numpy
+import numpy as np
 import pandas as pd
 from scipy.stats import ks_2samp
 from sensor.utils import read_yaml_file,write_yaml_file

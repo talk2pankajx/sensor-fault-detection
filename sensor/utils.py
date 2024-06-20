@@ -43,7 +43,7 @@ def read_yaml_file(file_path):
     except Exception as e:
         raise CustomException(e, sys)
 
-def convert_columns_float(pd:pd.DataFrame,excude_colummns:list=[])->pd.DataFrame:
+def convert_columns_float(df:pd.DataFrame,excude_colummns:list=[])->pd.DataFrame:
     try:
         for column in df.columns:
             if column not in excude_colummns:

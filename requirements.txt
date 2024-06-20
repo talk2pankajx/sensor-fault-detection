@@ -7,4 +7,5 @@ PyYAML
 dill
 imblearn
 xgboost
+apache-airflow
 -e .
