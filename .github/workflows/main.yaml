@@ -92,7 +92,7 @@ jobs:
        
       - name: Run Docker Image to serve users
         run: |
-         export IMAGE_NAME="${{ secrets.AWS_ECR_LOGIN_URI }}"/"${{ secrets.ECR_REPOSITORY_NAME }}":latest AWS_ACCESS_KEY = "${{ secrets.AWS_ACCESS_KEY }}" AWS_SECRET_KEY="${{ secrets.AWS_SECRET_KEY }}" BUCKET_NAME=${{ secrets.BUCKET_NAME}} AWS_REGION = ${{ secrets.AWS_REGION }} MONGO_DB_URL = "${{ secrets.MONGO_DB_URL }}" && docker compose up -d
+         export IMAGE_NAME="${{ secrets.AWS_ECR_LOGIN_URI }}"/"${{ secrets.ECR_REPOSITORY_NAME }}":latest AWS_ACCESS_KEY = "${{ secrets.AWS_ACCESS_KEY }}" AWS_SECRET_KEY="${{ secrets.AWS_SECRET_KEY }}" BUCKET_NAME="${{ secrets.BUCKET_NAME}}" AWS_REGION = "${{ secrets.AWS_REGION }}" "MONGO_DB_URL = ${{ secrets.MONGO_DB_URL }}" && docker compose up -d
       - name: Clean previous images and containers
         run: |
          docker system prune -f
