@@ -75,11 +75,11 @@ with DAG(
         os.system(f"aws s3 sync {config.outbox_dir} s3://{bucket_name}/outbox")
     
     
-    download_input_files= PythonOperator(
+    download_files_task= PythonOperator(
         task_id="download_files",
         python_callable= download_files,
     )
-    download_input_files.doc_md = textwrap.dedent()
+    download_files_task.doc_md = textwrap.dedent()
     
     
     batch_prediction_task= PythonOperator(
@@ -96,4 +96,4 @@ with DAG(
     upload_input_files.doc_md = textwrap.dedent()
     
     
-    download_input_files >> batch_prediction_task >> upload_input_files
+    download_files_task >> batch_prediction_task >> upload_input_files

@@ -6,6 +6,7 @@ from sensor.ml.model_resolver import ModelResolver
 from sensor.utils import read_yaml_file,write_yaml_file,load_numpy_array,save_object,load_object
 from glob import glob
 import pandas as pd
+import numpy as np
 from datetime import datetime
 import shutil
 
@@ -36,7 +37,7 @@ class BatchPrediction:
             for file_path in input_files:
                 logging.info(f"Reading file : {file_path}")
                 df=pd.read_csv(file_path)
-                df.replace({"na" :np.NAN},inplace = True)
+                df.replace({"na" :np.nan},inplace = True)
                 
                 input_feature_names = list(transformer.feature_names_in)
                 input_arr = transformer.transform(df[input_feature_names])
