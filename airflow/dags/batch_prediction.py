@@ -79,21 +79,21 @@ with DAG(
         task_id="download_files",
         python_callable= download_files,
     )
-    download_files_task.doc_md = textwrap.dedent()
+   
     
     
     batch_prediction_task= PythonOperator(
         task_id="batch_prediction",
         python_callable= batch_prediction,
     )
-    batch_prediction_task.doc_md = textwrap.dedent()
+   
     
     
     upload_input_files= PythonOperator(
         task_id="upload_files",
         python_callable= upload_files,
     )
-    upload_input_files.doc_md = textwrap.dedent()
+    
     
     
     download_files_task >> batch_prediction_task >> upload_input_files
