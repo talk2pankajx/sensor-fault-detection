@@ -1,4 +1,5 @@
 ## Project Overview
+
 The Sensor Fault Prediction project aims to predict faults in sensors using advanced machine learning techniques. This project leverages Apache Airflow for orchestrating data pipelines, ensuring efficient and reliable data processing workflows. After conducting seven experiments, the best model parameters were selected using XGBoost, a powerful and scalable gradient boosting framework. The final model is deployed on AWS to provide real-time predictions.
 
 ## Key Features
@@ -10,9 +11,8 @@ Real-time Fault Prediction: Provides real-time predictions of sensor faults, ena
 Project Structure
 dags/: Contains Airflow DAGs for orchestrating data pipelines.
 models/: Includes the trained XGBoost model and related scripts.
-scripts/: Contains data preprocessing and model training scripts.
-aws/: Configuration files and scripts for deploying the model on AWS.
-data/: Sample data used for training and testing the model.
+sensor/: Contains data preprocessing and model training pipelines.
+
 
 ## Getting Started
 
@@ -39,7 +39,7 @@ conda create -m envname -y
 
 configure the AWS ec2 service
 configure the ECR repository
-create an S3 bucket in AWD with /app/input_files
+create an S3 bucket in AWS with /app/input_files
 
 configure a self hoster runner on the github
 
@@ -67,4 +67,8 @@ Then run the following command to run the airflow locally
 Contributions are welcome! Please fork the repository and submit a pull request.
 
 
+## Usage
 
+Trigger the Airflow DAG to start the data pipeline.
+Monitor the pipeline’s progress through the Airflow web interface.
+Access real-time predictions via the deployed model on AWS.
